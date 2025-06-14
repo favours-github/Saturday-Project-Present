@@ -5,5 +5,7 @@ locals {
 }
 
 module "vpc" {
-  source = "https://github.com/favours-github/VPC-Module-For-Saturday.git"
+  source = "git@github.com:favours-github/VPC-Module-For-Saturday.git//vpc"
+  
 }
+
