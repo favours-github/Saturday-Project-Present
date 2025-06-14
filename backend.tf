@@ -1,5 +1,6 @@
 # Remember to create an S3 bucket on the console 
 # then copy and paste the name here on VS-Code 
+# key is where we specified the name we want give when stored in state on the S3 bucket
 
 terraform {
   backend "s3" {
