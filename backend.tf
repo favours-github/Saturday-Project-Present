@@ -6,10 +6,10 @@
 
 terraform {
   backend "s3" {
-    bucket = "saturday-project-present-remote"
-    key = "terraform-module/rentzone/terraform.tfstate"
-    region = "us-east-1"
-    profile = "Whiz_User_39847.81690825"
+    bucket         = "saturday-project-present-remote"
+    key            = "terraform-module/rentzone/terraform.tfstate"
+    region         = "us-east-1"
+    profile        = "Whiz_User_39847.81690825"
     dynamodb_table = "Saturday-Project-Present"
   }
 }
