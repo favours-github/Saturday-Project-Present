@@ -9,7 +9,7 @@ locals {
 # Note that what was on AOS for the source is different from what am currently working with as hashicorp has make changes to how it works.
 
 
-module "vpc" {
+module "vpcs" {
   source                       = "git::https://github.com/favours-github/VPC-Module-For-Saturday.git//vpc"
   region                       = local.region
   project_name                 = local.project_name
