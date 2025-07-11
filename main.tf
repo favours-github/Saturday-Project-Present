@@ -23,11 +23,10 @@ module "vpc" {
   private_data_subnet_az2_cidr = var.private_app_subnet_az2_cidr
 }
 
-# create natgateway
+# create a natgateway 
 
 module "natgateway" {
   source                     = "git::https://github.com/favours-github/VPC-Module-For-Saturday.git//natgateway"
-  region                     = local.region
   project_name               = local.project_name
   environment                = local.environment
   vpc_id                     = module.vpc.vpc_id
@@ -39,3 +38,14 @@ module "natgateway" {
   private_app_subnet_az2_id  = module.vpc.private_app_subnet_az2_id
   private_data_subnet_az2_id = module.vpc.private_data_subnet_az2_id
 }
+
+
+# Create security groups
+
+module "natgateway" {
+  source                     = "git::https://github.com/favours-github/VPC-Module-For-Saturday.git//SecurityGroups"
+  project_name               = local.project_name
+  environment                = local.environment
+  vpc_id                     = module.vpc.vpc_id
+  ssh_ip                     = var.ssh_ip
+  }

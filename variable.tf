@@ -48,3 +48,8 @@ variable "private_data_subnet_az2_cidr" {
   description = "CIDR block for private data subnet in availability zone 2"
   type        = string
 }
+
+variable "ssh_ip" {
+  description = "The IP address allowed to SSH into EC2 instances (in CIDR format, e.g., 203.0.113.5/32)"
+  type        = string
+}
