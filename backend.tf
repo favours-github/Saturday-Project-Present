@@ -9,7 +9,7 @@ terraform {
     bucket         = "saturday-project-present-remote"
     key            = "terraform-module/rentzone/terraform.tfstate"
     region         = "us-east-1"
-    profile        = "Whiz_User_39847.81690825"
+    profile        = "fnwosu"
     dynamodb_table = "Saturday-Project-Present"
   }
 }
