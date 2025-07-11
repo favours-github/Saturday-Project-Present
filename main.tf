@@ -47,5 +47,4 @@ module "SecurityGroups" {
   project_name               = local.project_name
   environment                = local.environment
   vpc_id                     = module.vpc.vpc_id
-  ssh_ip                     = var.ssh_ip
   }
