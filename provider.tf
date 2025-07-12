@@ -3,7 +3,7 @@
 # I made a mistake here with the profile, make sure to notice as you go, current name should be changed in other for the module to reference
 provider "aws" {
   region  = var.region
-  profile = "Whiz_User_39847.81690825"
+  profile = "fnwosu"
 
   default_tags {
     tags = {
