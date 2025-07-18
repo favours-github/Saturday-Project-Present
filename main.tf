@@ -43,8 +43,11 @@ module "natgateway" {
 # Create security groups
 
 module "SecurityGroups" {
-  source                     = "git::https://github.com/favours-github/VPC-Module-For-Saturday.git//SecurityGroups"
-  project_name               = local.project_name
-  environment                = local.environment
-  vpc_id                     = module.vpc.vpc_id
-  }
+  source       = "git::https://github.com/favours-github/VPC-Module-For-Saturday.git//SecurityGroups"
+  project_name = local.project_name
+  environment  = local.environment
+  vpc_id       = module.vpc.vpc_id
+}
+
+
+
