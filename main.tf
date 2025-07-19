@@ -9,7 +9,7 @@ locals {
 # Note that what was on AOS for the source is different from what am currently working with as hashicorp has make changes to how it works.
 
 
-module "vpc" {
+module vpc {
   source                       = "git::https://github.com/favours-github/VPC-Module-For-Saturday.git//vpc"
   region                       = local.region
   project_name                 = local.project_name
@@ -25,7 +25,7 @@ module "vpc" {
 
 # create a natgateway 
 
-module "natgateway" {
+module natgateway {
   source                     = "git::https://github.com/favours-github/VPC-Module-For-Saturday.git//natgateway"
   project_name               = local.project_name
   environment                = local.environment
@@ -42,7 +42,7 @@ module "natgateway" {
 
 # Create security groups
 
-module "SecurityGroups" {
+module SecurityGroups {
   source       = "git::https://github.com/favours-github/VPC-Module-For-Saturday.git//SecurityGroups"
   project_name = local.project_name
   environment  = local.environment
@@ -51,18 +51,18 @@ module "SecurityGroups" {
 
 # Launch rds instance
 
-module "rds" {
-  source                       = "git::https://github.com/favours-github/VPC-Module-For-Saturday.git//rds"
-  project_name                 = local.project_name
-  environment                  = local.environment
-  private_data_subnet_az1_id   = module.vpc.private_data_subnet_az1_id
-  private_data_subnet_az2_id   = module.vpc.private_data_subnet_az2_id
+module rds {
+  source = "git::https://github.com/favours-github/VPC-Module-For-Saturday.git//rdss"
+  project_name = local.project_name
+  environment = local.environment
+  private_data_subnet_az1_id = module.vpc.private_data_subnet_az1_id
+  private_data_subnet_az2_id = module.vpc.private_data_subnet_az2_id
   database_snapshot_identifier = var.database_snapshot_identifier
-  database_instance_class      = var.database_instance_class
-  availability_zone_1          = module.vpc.availability_zone_1
+  database_instance_class = var.database_instance_class
+  availability_zone_1 = module.vpc.availability_zone_1
   database_instance_identifier = var.database_instance_identifier
-  multi_az_deployment          = var.multi_az_deployment
-  database_security_group_id   = module.SecurityGroups.database_security_group_id
+  multi_az_deployment = var.multi_az_deployment
+  database_security_group_id = module.SecurityGroups.database_security_group_id
 
 }
 
