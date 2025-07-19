@@ -30,7 +30,7 @@ module "natgateway" {
   project_name               = local.project_name
   environment                = local.environment
   vpc_id                     = module.vpc.vpc_id
-  internet_gateway_id           = module.vpc.internet_gateway
+  internet_gateway_id        = module.vpc.internet_gateway_id
   public_subnet_az1_id       = module.vpc.public_subnet_az1_id
   public_subnet_az2_id       = module.vpc.public_subnet_az2_id
   private_app_subnet_az1_id  = module.vpc.private_app_subnet_az1_id
@@ -47,6 +47,7 @@ module "SecurityGroups" {
   project_name = local.project_name
   environment  = local.environment
   vpc_id       = module.vpc.vpc_id
+  
 }
 
 # Launch rds instance
