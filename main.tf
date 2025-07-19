@@ -51,7 +51,7 @@ module "SecurityGroups" {
 }
 
 # Launch rds instance
-/*
+
 module "rds" {
   source                       = "git::https://github.com/favours-github/VPC-Module-For-Saturday.git//rdss"
   project_name                 = local.project_name
@@ -60,11 +60,11 @@ module "rds" {
   private_data_subnet_az2_id   = module.vpc.private_data_subnet_az2_id
   database_snapshot_identifier = var.database_snapshot_identifier
   database_instance_class      = var.database_instance_class
-  #availability_zone_1          = module.vpc.availability_zone_1
+  availability_zone_1          = module.vpc.availability_zone_1
   database_instance_identifier = var.database_instance_identifier
   multi_az_deployment          = var.multi_az_deployment
-  #tdatabase_security_group_id   = module.SecurityGroups.database_security_group_id
+  database_security_group_id   = module.SecurityGroups.database_security_group_id
 
 }
 
-*/
+
